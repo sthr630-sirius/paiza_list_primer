@@ -30,6 +30,7 @@ if p > n:
 
 else:
     print("作成中")
+    print("github 確認")
 
 print(value)
 print(next_ptr)
