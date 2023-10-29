@@ -1,4 +1,3 @@
-"test"
 n, p, x = map(int, input().split())
 size_array = 1024
 start_idx = 0
@@ -20,8 +19,11 @@ for _ in range(n):
     empty_min_ptr += 1
     back += 1
 
+#print(value)
+#print(next_ptr)
+
 if p > n:
-    next_ptr[next_ptr.index(end_idx)] = empty_min_ptr
+    next_zptr[next_ptr.index(end_idx)] = empty_min_ptr
 
     value[empty_min_ptr] = x
     next_ptr[empty_min_ptr] = end_idx
@@ -30,9 +32,18 @@ if p > n:
     back += 1
 
 else:
-    print("作成中")
-    print("github branch test")
-    print("github pull request")
+    value[empty_min_ptr] = x
 
-print(value)
-print(next_ptr)
+    pre_insert_idx = next_ptr.index(p)
+    post_insert_idx = next_ptr[pre_insert_idx]
+    next_ptr[pre_insert_idx] = empty_min_ptr
+    next_ptr[empty_min_ptr] = post_insert_idx
+
+    empty_min_ptr += 1
+    back += 1
+
+out_idx = next_ptr[0]
+
+while out_idx != end_idx:
+    print(value[out_idx])
+    out_idx = next_ptr[out_idx]
