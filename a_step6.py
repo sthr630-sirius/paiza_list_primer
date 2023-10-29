@@ -31,7 +31,8 @@ if p > n:
 
 else:
     print("作成中")
-    print("github 確認")
+    print("github branch test")
+    print("github pull request")
 
 print(value)
 print(next_ptr)
