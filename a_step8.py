@@ -21,11 +21,22 @@ for _ in range(n):
     empty_min_idx += 1
     back += 1
 
+#print(value)
+#print(next_ptr)
+
+' main '
+if l != r:
+    pre_del_idx = next_ptr.index(l)
+    post_del_idx = pre_del_idx
+    for _ in range(r-l+1):
+        post_del_idx = next_ptr[post_del_idx]
+    next_ptr[pre_del_idx] = post_del_idx
+
 ' output value of array '
 output_idx = next_ptr[start_idx]
 while output_idx != end_idx:
     print(value[output_idx])
     output_idx = next_ptr[output_idx]
 
-print(value)
-print(next_ptr)
+#print(value)
+#print(next_ptr)
