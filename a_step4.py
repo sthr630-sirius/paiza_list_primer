@@ -1,4 +1,3 @@
-"test"
 n, k = map(int, input().split())
 size_array = 1024
 start_idx = 0

@@ -1,4 +1,3 @@
-"test"
 n = int(input())
 size_array = 1024
 start_idx = 0
