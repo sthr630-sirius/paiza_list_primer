@@ -23,7 +23,7 @@ for _ in range(n):
 #print(next_ptr)
 
 if p > n:
-    next_zptr[next_ptr.index(end_idx)] = empty_min_ptr
+    next_ptr[next_ptr.index(end_idx)] = empty_min_ptr
 
     value[empty_min_ptr] = x
     next_ptr[empty_min_ptr] = end_idx
