@@ -20,25 +20,43 @@ for _ in range(n):
     value[empty_min_idx] = a
     next_ptr[back] = empty_min_idx
     next_ptr[empty_min_idx] = end_idx
+    empty_min_idx += 1
+    back += 1
 
 '-------------------------------------'
-' fanction search idex              '
+' function search index              '
+def search_idx(next_ptr, p):
+    idx = next_ptr[0]
+    counter = 1
+    while counter <= p+1:
+        if counter == p-1:
+            pre_target_idx = idx
+        elif counter == p:
+            target_idx = idx
+        elif counter == p+1:
+            post_target_idx = idx
+
+        idx = next_ptr[idx]
+        counter += 1
+
+    return pre_target_idx, target_idx, post_target_idx
 
 '-------------------------------------'
-' fanction insert                       '
+' function insert                       '
 
 '-------------------------------------'
-' fanction delete                      '
+' function delete                      '
 
 '-------------------------------------'
 ' main                                      '
 for _ in range(q):
     query = input()
-    print(query[0])
     if int(query[0]) == 1:
         p = int(query.split()[1])
         x = int(query.split()[2])
         print("insert ", p, x)
+        pre_target_idx, target_idx, post_target_idx = search_idx(next_ptr, p)
+        print(pre_target_idx, target_idx, post_target_idx)
         # insert()
     elif int(query[0]) == 2:
         p = int(query.split()[1])
@@ -49,5 +67,5 @@ for _ in range(q):
 
 '-------------------------------------'
 ' test block                             '
-print(value)
-print(next_ptr)
+#print(value)
+#print(next_ptr)
