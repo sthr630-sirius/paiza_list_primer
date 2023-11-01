@@ -42,7 +42,11 @@ def search_idx(next_ptr, p):
     return pre_target_idx, target_idx, post_target_idx
 
 '-------------------------------------'
-' function insert                       '
+' function insert                      '
+def insert_element(value, next_ptr, pre_target_idx, target_idx, post_target_idx, empty_min_idx, back, x):
+    value[empty_min_idx] = x
+    next_ptr[pre_target_idx] = empty_min_idx
+    next_ptr[empty_min_idx] = post_target_idx
 
 '-------------------------------------'
 ' function delete                      '
@@ -56,8 +60,14 @@ for _ in range(q):
         x = int(query.split()[2])
         print("insert ", p, x)
         pre_target_idx, target_idx, post_target_idx = search_idx(next_ptr, p)
-        print(pre_target_idx, target_idx, post_target_idx)
-        # insert()
+        #print(pre_target_idx, target_idx, post_target_idx)
+        #print(value)
+        #print(next_ptr)
+        insert_element(value, next_ptr, pre_target_idx, target_idx, post_target_idx, empty_min_idx, back, x)
+        empty_min_idx += 1
+        back += 1
+        #print(value)
+        #print(next_ptr)
     elif int(query[0]) == 2:
         p = int(query.split()[1])
         print("delete ", p)
