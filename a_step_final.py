@@ -50,9 +50,13 @@ def insert_element(value, next_ptr, pre_target_idx, target_idx, post_target_idx,
 
 '-------------------------------------'
 ' function delete                      '
+def delete_element(next_ptr, pre_target_idx, post_target_idx):
+    next_ptr[pre_target_idx] = post_target_idx
 
 '-------------------------------------'
 ' main                                      '
+print(value)
+print(next_ptr)
 for _ in range(q):
     query = input()
     if int(query[0]) == 1:
@@ -71,7 +75,11 @@ for _ in range(q):
     elif int(query[0]) == 2:
         p = int(query.split()[1])
         print("delete ", p)
-        # delete()
+        pre_target_idx, target_idx, post_target_idx = search_idx(next_ptr, p)
+        delete_element(next_ptr, pre_target_idx,  post_target_idx)
+
+    print(value)
+    print(next_ptr)
 '-------------------------------------'
 ' print                                      '
 
