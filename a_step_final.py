@@ -46,7 +46,7 @@ def search_idx(next_ptr, p):
 def insert_element(value, next_ptr, pre_target_idx, target_idx, post_target_idx, empty_min_idx, back, x):
     value[empty_min_idx] = x
     next_ptr[pre_target_idx] = empty_min_idx
-    next_ptr[empty_min_idx] = post_target_idx
+    next_ptr[empty_min_idx] = target_idx
 
 '-------------------------------------'
 ' function delete                      '
