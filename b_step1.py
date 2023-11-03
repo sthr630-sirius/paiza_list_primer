@@ -22,4 +22,7 @@ for _ in range(n):
     prev_ptr[end_idx] = empty_min_idx
     empty_min_idx += 1
 
-print(value)
+print_idx = next_ptr[start_idx]
+while print_idx != end_idx:
+    print(value[print_idx])
+    print_idx = next_ptr[print_idx]
