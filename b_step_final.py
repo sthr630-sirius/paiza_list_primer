@@ -3,6 +3,16 @@
 
 '---------------------------------'
 '    function search_idx      '
+def search_idx(p):
+    idx = next_ptr[start_idx]
+    target_idx = 0
+    counter = 1
+    while counter <= p:
+        if counter == p:
+            target_idx = idx
+        idx = next_ptr[idx]
+        counter += 1
+    return target_idx
 
 '---------------------------------'
 '  function insert_element '
