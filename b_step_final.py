@@ -1,8 +1,14 @@
 '---------------------------------'
-'    function push_back      '
+'    function push_back           '
+def push_back(empty_min_idx, start_idx, end_idx, x):
+    value[empty_min_idx] = x
+    next_ptr[empty_min_idx] = end_idx
+    next_ptr[prev_ptr[end_idx]] = empty_min_idx
+    prev_ptr[empty_min_idx] = prev_ptr[end_idx]
+    prev_ptr[end_idx] = empty_min_idx
 
 '---------------------------------'
-'    function search_idx      '
+'    function search_idx          '
 def search_idx(p):
     idx = next_ptr[start_idx]
     target_idx = 0
@@ -48,8 +54,11 @@ print(prev_ptr)
 '    initialization array          '
 for _ in range(n):
     a = int(input())
-    #push_back(a)
-
+    push_back(empty_min_idx, start_idx, end_idx, a)
+    empty_min_idx += 1
+print("value:", value)
+print("next_ptr:", next_ptr)
+print("prev_ptr", prev_ptr)
 '---------------------------------'
 '                main                  '
 for _ in range(q):
