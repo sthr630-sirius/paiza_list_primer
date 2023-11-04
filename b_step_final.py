@@ -21,10 +21,19 @@ def search_idx(p):
     return target_idx
 
 '---------------------------------'
-'  function insert_element '
+'  function insert_element        '
+def insert_element(target_idx, empty_min_idx, x):
+    value[empty_min_idx] = x
+    next_ptr[empty_min_idx] = next_ptr[target_idx]
+    next_ptr[prev_ptr[target_idx]] = empty_min_idx
+    prev_ptr[empty_min_idx] = prev_ptr[target_idx]
+    prev_ptr[target_idx] = empty_min_idx
 
 '---------------------------------'
-' function delete_element  '
+' function delete_element         '
+def delete_element(target_idx):
+    next_ptr[prev_ptr[target_idx]] = next_ptr[target_idx]
+    prev_ptr[next_ptr[target_idx]] = prev_ptr[target_idx]
 
 '---------------------------------'
 '   function print_array      '
@@ -60,18 +69,20 @@ print("value:", value)
 print("next_ptr:", next_ptr)
 print("prev_ptr", prev_ptr)
 '---------------------------------'
-'                main                  '
+'                main             '
 for _ in range(q):
     query = input()
     print(query)
-    if query[0] == 1:
-        p = query[1]
-        x = query[2]
-        #target_idx = search_idx(p)
-        #insert_element(target_idx, x)
-    elif query[0] == 2:
-        p = query[1]
-        #target_idx = search_idx(p)
-        #delete_element(target_idx)
+    if int(query[0]) == 1:
+        p = int(query.split()[1])
+        x = int(query.split()[2])
+        target_idx = search_idx(p)
+        insert_element(target_idx, empty_min_idx, x)
+        empty_min_idx += 1
+    elif int(query[0]) == 2:
+        p = int(query.split()[1])
+        target_idx = search_idx(p)
+        delete_element(target_idx)
 
+print(value)
 #print_array()
